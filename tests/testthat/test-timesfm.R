@@ -49,4 +49,11 @@ test_that("forecast round trip works", {
 
   # ts input gives the same result as its numeric values
   expect_identical(timesfm(AirPassengers, horizon = 24)$mean, fc$mean)
+
+  # forecasts are plain R data: they serialize and restore exactly, with no
+  # live Python references (unlike tabfm fits, there is nothing to rebuild)
+  path <- tempfile(fileext = ".rds")
+  on.exit(unlink(path))
+  saveRDS(fc, path)
+  expect_identical(readRDS(path), fc)
 })
