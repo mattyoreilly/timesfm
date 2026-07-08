@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# timesfm
+# timesfm <img src="man/figures/logo.svg" align="right" height="139" alt="timesfm hex sticker" />
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
