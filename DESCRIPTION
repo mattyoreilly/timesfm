@@ -1,0 +1,24 @@
+Package: timesfm
+Title: R Interface to 'TimesFM', a Foundation Model for Time Series
+    Forecasting
+Version: 0.1.0
+Authors@R: person("Matt", "O'Reilly", email = "fermoymatt@gmail.com", role = c("aut", "cre"))
+Description: A thin wrapper around the 'TimesFM' 'Python' package from Google
+    Research (<https://github.com/google-research/timesfm>). Provides
+    zero-shot probabilistic forecasting of univariate time series from a
+    pretrained foundation model, with no training or tuning.
+License: Apache License (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Imports:
+    reticulate,
+    utils
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+SystemRequirements: Python (>= 3.10) with the 'timesfm' package (see
+    install_timesfm())
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.0.0

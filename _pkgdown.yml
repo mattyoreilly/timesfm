@@ -1,0 +1,11 @@
+url: ~
+template:
+  bootstrap: 5
+
+reference:
+- title: Forecasting
+  contents:
+  - timesfm
+- title: Setup
+  contents:
+  - install_timesfm
