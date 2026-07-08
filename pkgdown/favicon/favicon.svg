@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 462" width="400" height="462"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><defs>
+    <clipPath id="hexclip">
+      <polygon points="200,11 390.5,121 390.5,341 200,451 9.5,341 9.5,121"></polygon>
+    </clipPath>
+  </defs><polygon points="200,11 390.5,121 390.5,341 200,451 9.5,341 9.5,121" fill="#1E293B"></polygon><g clip-path="url(#hexclip)">
+    <!-- forecast motif: observed series, then a widening quantile fan -->
+    <!-- quantile fan (q10-q90) -->
+    <polygon points="228,166 258,148 292,122 336,92 336,232 292,196 258,178" fill="#F59E0B" opacity="0.30"></polygon>
+    <!-- observed history -->
+    <polyline points="66,238 92,212 116,224 140,192 164,204 188,172 212,184 228,166" fill="none" stroke="#FBBF24" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"></polyline>
+    <!-- median forecast -->
+    <polyline points="228,166 260,158 296,142 336,124" fill="none" stroke="#FBBF24" stroke-width="7" stroke-dasharray="2 14" stroke-linecap="round"></polyline>
+    <!-- the forecast-origin point -->
+    <circle cx="228" cy="166" r="10" fill="#FBBF24"></circle>
+    <!-- wordmark -->
+    <text x="200" y="330" font-family="Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#F8FAFC" text-anchor="middle" letter-spacing="1">timesfm</text>
+    <text x="200" y="366" font-family="Helvetica, Arial, sans-serif" font-size="17" fill="#94A3B8" text-anchor="middle" letter-spacing="2">ZERO-SHOT FORECASTING</text>
+  </g><polygon points="200,11 390.5,121 390.5,341 200,451 9.5,341 9.5,121" fill="none" stroke="#F59E0B" stroke-width="10"></polygon></svg>

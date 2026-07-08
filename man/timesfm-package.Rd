@@ -5,6 +5,8 @@
 \alias{timesfm-package}
 \title{timesfm: R Interface to 'TimesFM', a Foundation Model for Time Series Forecasting}
 \description{
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
 A thin wrapper around the 'TimesFM' 'Python' package from Google Research (\url{https://github.com/google-research/timesfm}). Provides zero-shot probabilistic forecasting of univariate time series from a pretrained foundation model, with no training or tuning.
 }
 \seealso{

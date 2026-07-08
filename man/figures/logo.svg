@@ -10,25 +10,25 @@
   <g clip-path="url(#hexclip)">
     <!-- forecast motif: observed series, then a widening quantile fan -->
     <!-- quantile fan (q10-q90) -->
-    <polygon points="228,166 258,148 292,122 336,92 336,232 292,196 258,178"
+    <polygon points="228,166 256,150 288,128 320,104 320,222 288,192 256,176"
              fill="#F59E0B" opacity="0.30"/>
     <!-- observed history -->
     <polyline points="66,238 92,212 116,224 140,192 164,204 188,172 212,184 228,166"
               fill="none" stroke="#FBBF24" stroke-width="9"
               stroke-linecap="round" stroke-linejoin="round"/>
     <!-- median forecast -->
-    <polyline points="228,166 260,158 296,142 336,124"
+    <polyline points="228,166 258,159 290,146 320,130"
               fill="none" stroke="#FBBF24" stroke-width="7"
               stroke-dasharray="2 14" stroke-linecap="round"/>
     <!-- the forecast-origin point -->
     <circle cx="228" cy="166" r="10" fill="#FBBF24"/>
     <!-- wordmark -->
-    <text x="200" y="330" font-family="Helvetica, Arial, sans-serif"
+    <text x="200" y="318" font-family="Helvetica, Arial, sans-serif"
           font-size="64" font-weight="700" fill="#F8FAFC"
           text-anchor="middle" letter-spacing="1">timesfm</text>
-    <text x="200" y="366" font-family="Helvetica, Arial, sans-serif"
-          font-size="17" fill="#94A3B8" text-anchor="middle"
-          letter-spacing="2">ZERO-SHOT FORECASTING</text>
+    <text x="200" y="350" font-family="Helvetica, Arial, sans-serif"
+          font-size="16" fill="#94A3B8" text-anchor="middle"
+          letter-spacing="1.5">ZERO-SHOT FORECASTING</text>
   </g>
   <!-- accent border, drawn inset over the clip -->
   <polygon points="200,11 390.5,121 390.5,341 200,451 9.5,341 9.5,121"
