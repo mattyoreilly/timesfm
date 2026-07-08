@@ -42,6 +42,13 @@ install_timesfm <- function(envname = "r-timesfm", ...) {
     }
   }
   if (!reticulate::virtualenv_exists(envname)) {
+    # GUI R sessions often don't see Homebrew/pyenv Pythons on their PATH;
+    # fall back to a reticulate-managed Python rather than erroring
+    if (is.null(reticulate::virtualenv_starter(">=3.10"))) {
+      message("No Python >= 3.10 found; installing one via reticulate ",
+              "(one-time, may take a few minutes).")
+      reticulate::install_python()
+    }
     reticulate::virtualenv_create(envname, version = ">=3.10")
   }
   reticulate::py_install("timesfm[torch]", envname = envname, pip = TRUE, ...)
@@ -98,8 +105,8 @@ quiet_hf_nag <- function() {
 #' session and the model is reused by later calls.
 #'
 #' @param y A numeric vector or `ts` object: the observed series, oldest
-#'   first. Series longer than 1024 points are used from the most recent
-#'   1024.
+#'   first, with no missing values (impute or drop them first). Series
+#'   longer than 1024 points are used from the most recent 1024.
 #' @param horizon Number of future steps to forecast, between 1 and 256.
 #' @returns An object of class `"timesfm"`: a list with elements
 #'   * `mean` — numeric vector of point forecasts, length `horizon`.
@@ -117,8 +124,9 @@ quiet_hf_nag <- function() {
 #' @export
 timesfm <- function(y, horizon) {
   y <- as.numeric(y)
-  if (length(y) < 2 || !any(is.finite(y))) {
-    stop("`y` must be a numeric series with at least 2 finite values.")
+  if (length(y) < 2 || !all(is.finite(y))) {
+    stop("`y` must be a numeric series of at least 2 values with no ",
+         "missing or infinite values.")
   }
   if (!is.numeric(horizon) || length(horizon) != 1 || is.na(horizon) ||
       horizon < 1 || horizon > 256) {

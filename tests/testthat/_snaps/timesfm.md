@@ -6,25 +6,12 @@
       Warning in `timesfm()`:
       NAs introduced by coercion
       Error in `timesfm()`:
-      ! `y` must be a numeric series with at least 2 finite values.
+      ! `y` must be a numeric series of at least 2 values with no missing or infinite values.
     Code
       timesfm(c(1, NA, NaN), horizon = 12)
     Condition
-      Error:
-      ! Python module timesfm was not found.
-      
-      Detected Python configuration:
-      
-      python:         /Users/mattoreilly/Library/Caches/org.R-project.R/R/reticulate/uv/cache/archive-v0/KF_xaigBphOsAmlr/bin/python
-      libpython:      /Users/mattoreilly/Library/Caches/org.R-project.R/R/reticulate/uv/python/cpython-3.12.13-macos-aarch64-none/lib/libpython3.12.dylib
-      pythonhome:     /Users/mattoreilly/Library/Caches/org.R-project.R/R/reticulate/uv/cache/archive-v0/KF_xaigBphOsAmlr:/Users/mattoreilly/Library/Caches/org.R-project.R/R/reticulate/uv/cache/archive-v0/KF_xaigBphOsAmlr
-      virtualenv:     /Users/mattoreilly/Library/Caches/org.R-project.R/R/reticulate/uv/cache/archive-v0/KF_xaigBphOsAmlr/bin/activate_this.py
-      version:        3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]
-      numpy:          /Users/mattoreilly/Library/Caches/org.R-project.R/R/reticulate/uv/cache/archive-v0/KF_xaigBphOsAmlr/lib/python3.12/site-packages/numpy
-      numpy_version:  2.5.1
-      timesfm:        [NOT FOUND]
-      
-      NOTE: Python version was forced by py_require()
+      Error in `timesfm()`:
+      ! `y` must be a numeric series of at least 2 values with no missing or infinite values.
     Code
       timesfm(1:10, horizon = 0)
     Condition

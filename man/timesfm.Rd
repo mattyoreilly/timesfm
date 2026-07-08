@@ -8,8 +8,8 @@ timesfm(y, horizon)
 }
 \arguments{
 \item{y}{A numeric vector or \code{ts} object: the observed series, oldest
-first. Series longer than 1024 points are used from the most recent
-1024.}
+first, with no missing values (impute or drop them first). Series
+longer than 1024 points are used from the most recent 1024.}
 
 \item{horizon}{Number of future steps to forecast, between 1 and 256.}
 }
