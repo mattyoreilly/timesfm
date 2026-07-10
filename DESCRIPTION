@@ -8,7 +8,7 @@ Description: A thin wrapper around the 'TimesFM' 'Python' package from Google
     zero-shot probabilistic forecasting of univariate time series from a
     pretrained foundation model, with no training or tuning.
 License: Apache License (>= 2)
-URL: https://github.com/mattyoreilly/timesfm
+URL: https://mattyoreilly.github.io/timesfm/, https://github.com/mattyoreilly/timesfm
 BugReports: https://github.com/mattyoreilly/timesfm/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
