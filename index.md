@@ -1,0 +1,79 @@
+# timesfm
+
+The goal of timesfm is to make
+[TimesFM](https://github.com/google-research/timesfm), Google Research’s
+foundation model for time series, easy to use from R. You give it an
+observed series and a horizon; it gives you point forecasts and forecast
+deciles with **no training, no model selection, and no tuning** — the
+pretrained model reads your series as context and forecasts in a single
+forward pass.
+
+It is a sibling of the [tabfm](https://github.com/mattyoreilly/tabfm)
+package (zero-shot classification/regression on tabular data), built the
+same way: a thin [reticulate](https://rstudio.github.io/reticulate/)
+wrapper around the official Python package.
+
+## Installation
+
+You can install the development version of timesfm like so:
+
+``` r
+
+# install.packages("remotes")
+remotes::install_github("mattyoreilly/timesfm")
+```
+
+Then, one time only, install the underlying Python package into a
+dedicated virtualenv:
+
+``` r
+
+library(timesfm)
+install_timesfm()
+```
+
+## Example
+
+Pass a numeric vector or `ts`, oldest observation first, and a horizon
+of up to 256 steps:
+
+``` r
+
+library(timesfm)
+
+fc <- timesfm(AirPassengers, horizon = 24)
+fc
+
+fc$mean                          # point forecasts
+fc$quantiles[, c("q10", "q90")]  # an 80% prediction interval
+```
+
+The first call loads the pretrained weights (downloaded once from the
+Hugging Face Hub and cached); after that, forecasts in the same session
+are fast.
+
+## Making it fast
+
+The pretrained weights are cached after the first download, but one
+optional line in your `~/.Renviron` (no Hugging Face account needed)
+makes cold starts noticeably faster:
+
+``` R
+HF_HUB_OFFLINE=1
+```
+
+It loads weights straight from the local cache instead of revalidating
+them against the Hugging Face Hub on each session’s first forecast.
+Unset it whenever you need to download weights you don’t have yet.
+
+## Limitations
+
+- Forecasts require a working Python installation;
+  [`install_timesfm()`](https://mattyoreilly.github.io/timesfm/reference/install_timesfm.md)
+  sets everything up via reticulate.
+- Univariate series only, context capped at the most recent 1024 points,
+  horizon capped at 256 steps.
+- TimesFM is zero-shot: there is nothing to tune. If you need
+  covariates, hierarchical structure, or bespoke accuracy on one series,
+  reach for [fable](https://fable.tidyverts.org) or
+  [prophet](https://facebook.github.io/prophet/).
